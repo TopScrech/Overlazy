@@ -28,7 +28,10 @@ struct MenuBarContentView: View {
         Divider()
 
         ForEach(inputSwitcherStore.inputSources) { inputSource in
-            Button(inputSource.name, systemImage: systemImage(for: inputSource)) {
+            MenuBarInputSourceButtonView(
+                inputSource: inputSource,
+                isSelected: isSelected(inputSource)
+            ) {
                 inputSwitcherStore.select(inputSource)
             }
         }
@@ -68,7 +71,7 @@ struct MenuBarContentView: View {
         }
     }
 
-    private func systemImage(for inputSource: InputSource) -> String {
-        inputSource == inputSwitcherStore.selectedInputSource ? "checkmark.circle.fill" : "circle"
+    private func isSelected(_ inputSource: InputSource) -> Bool {
+        inputSource.id == inputSwitcherStore.selectedInputSource?.id
     }
 }
