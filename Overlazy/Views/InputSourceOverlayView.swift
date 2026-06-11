@@ -11,7 +11,7 @@ struct InputSourceOverlayView: View {
                 .foregroundStyle(.primary)
                 .lineLimit(1)
                 .minimumScaleFactor(0.7)
-                .frame(64)
+                .frame(width: 60, height: 50)
                 .glassEffect(in: .rect(cornerRadius: 8))
         } else {
             Text(inputSource.displayLanguageCode)
@@ -20,7 +20,7 @@ struct InputSourceOverlayView: View {
                 .foregroundStyle(.primary)
                 .lineLimit(1)
                 .minimumScaleFactor(0.7)
-                .frame(64)
+                .frame(width: 60, height: 50)
                 .background(.ultraThinMaterial, in: .rect(cornerRadius: 8))
         }
     }
