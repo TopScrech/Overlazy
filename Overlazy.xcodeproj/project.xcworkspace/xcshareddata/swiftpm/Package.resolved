@@ -6,8 +6,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/TopScrech/ScrechKit",
       "state" : {
-        "branch" : "main",
-        "revision" : "287bec37dfe0c0529ad1599cb5da5beb7372d429"
+        "revision" : "971c2ceb06ecd109d3dfdde5d4076d92ab6baf4b",
+        "version" : "1.0.8"
       }
     }
   ],
