@@ -1,3 +1,4 @@
+import LaunchAtLogin
 import ScrechKit
 
 struct MenuBarContentView: View {
@@ -31,6 +32,10 @@ struct MenuBarContentView: View {
                 inputSwitcherStore.select(inputSource)
             }
         }
+
+        Divider()
+
+        LaunchAtLogin.Toggle()
 
         Divider()
 

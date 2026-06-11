@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		F3A000012FD7100000ABCD01 /* ScrechKit in Frameworks */ = {isa = PBXBuildFile; productRef = F3A000032FD7100000ABCD01 /* ScrechKit */; };
+		F3A000042FD7200000ABCD02 /* LaunchAtLogin in Frameworks */ = {isa = PBXBuildFile; productRef = F3A000062FD7200000ABCD02 /* LaunchAtLogin */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F3A000012FD7100000ABCD01 /* ScrechKit in Frameworks */,
+				F3A000042FD7200000ABCD02 /* LaunchAtLogin in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -71,6 +73,7 @@
 			name = Overlazy;
 			packageProductDependencies = (
 				F3A000032FD7100000ABCD01 /* ScrechKit */,
+				F3A000062FD7200000ABCD02 /* LaunchAtLogin */,
 			);
 			productName = Overlazy;
 			productReference = F3F1E1E02FD6A2F6001C9C85 /* Overlazy.app */;
@@ -102,6 +105,7 @@
 			minimizedProjectReferenceProxies = 1;
 			packageReferences = (
 				F3A000022FD7100000ABCD01 /* XCRemoteSwiftPackageReference "ScrechKit" */,
+				F3A000052FD7200000ABCD02 /* XCRemoteSwiftPackageReference "LaunchAtLogin" */,
 			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = F3F1E1E12FD6A2F6001C9C85 /* Products */;
@@ -364,6 +368,14 @@
 				minimumVersion = 1.0.0;
 			};
 		};
+		F3A000052FD7200000ABCD02 /* XCRemoteSwiftPackageReference "LaunchAtLogin" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/TopScrech/LaunchAtLogin";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.1;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -371,6 +383,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = F3A000022FD7100000ABCD01 /* XCRemoteSwiftPackageReference "ScrechKit" */;
 			productName = ScrechKit;
+		};
+		F3A000062FD7200000ABCD02 /* LaunchAtLogin */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F3A000052FD7200000ABCD02 /* XCRemoteSwiftPackageReference "LaunchAtLogin" */;
+			productName = LaunchAtLogin;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
