@@ -12,6 +12,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		F3A000072FD7300000ABCD03 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		F3F1E1E02FD6A2F6001C9C85 /* Overlazy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Overlazy.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -39,6 +40,7 @@
 		F3F1E1D72FD6A2F6001C9C85 = {
 			isa = PBXGroup;
 			children = (
+				F3A000072FD7300000ABCD03 /* README.md */,
 				F3F1E1E22FD6A2F6001C9C85 /* Overlazy */,
 				F3F1E1E12FD6A2F6001C9C85 /* Products */,
 			);
