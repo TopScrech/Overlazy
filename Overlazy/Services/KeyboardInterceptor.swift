@@ -5,10 +5,12 @@ import Foundation
 final class KeyboardInterceptor: @unchecked Sendable {
     var onShortcut: (@MainActor () -> Void)?
     
+    nonisolated private static let maximumGlobeTapDuration: CGEventTimestamp = 400_000_000
+    
     nonisolated(unsafe) private var eventTap: CFMachPort?
     nonisolated(unsafe) private var runLoopSource: CFRunLoopSource?
-    nonisolated(unsafe) private var isFunctionKeyPressed = false
-    nonisolated(unsafe) private var shouldSuppressFunctionKeyUp = false
+    nonisolated(unsafe) private var functionKeyPressedAt: CGEventTimestamp?
+    nonisolated(unsafe) private var didUseFunctionKeyAsModifier = false
     nonisolated(unsafe) private var shouldSuppressSpaceKeyUp = false
     
     func start() -> KeyboardShortcutStatus {
@@ -94,15 +96,21 @@ final class KeyboardInterceptor: @unchecked Sendable {
             return handleFunctionKeyFlagsChanged(event)
         }
         
-        if type == .keyDown, isFunctionKey(event), !isRepeat(event) {
-            shouldSuppressFunctionKeyUp = true
-            triggerShortcut()
+        if type == .keyDown, isFunctionKey(event) {
+            if !isRepeat(event) {
+                beginFunctionKeyPress(at: event.timestamp)
+            }
+            
             return nil
         }
         
-        if type == .keyUp, shouldSuppressFunctionKeyUp, isFunctionKey(event) {
-            shouldSuppressFunctionKeyUp = false
+        if type == .keyUp, isFunctionKey(event) {
+            endFunctionKeyPress(at: event.timestamp)
             return nil
+        }
+        
+        if type == .keyDown, functionKeyPressedAt != nil {
+            didUseFunctionKeyAsModifier = true
         }
         
         if type == .keyDown, isControlSpace(event), !isRepeat(event) {
@@ -122,18 +130,41 @@ final class KeyboardInterceptor: @unchecked Sendable {
     private nonisolated func handleFunctionKeyFlagsChanged(_ event: CGEvent) -> Unmanaged<CGEvent>? {
         let isPressed = event.flags.contains(.maskSecondaryFn)
         
-        if isPressed, !isFunctionKeyPressed {
-            isFunctionKeyPressed = true
-            triggerShortcut()
-            return nil
-        }
-        
-        if !isPressed, isFunctionKeyPressed {
-            isFunctionKeyPressed = false
-            return nil
+        if isPressed {
+            beginFunctionKeyPress(at: event.timestamp)
+        } else {
+            endFunctionKeyPress(at: event.timestamp)
         }
         
         return nil
+    }
+    
+    private nonisolated func beginFunctionKeyPress(at timestamp: CGEventTimestamp) {
+        guard functionKeyPressedAt == nil else {
+            return
+        }
+        
+        functionKeyPressedAt = timestamp
+        didUseFunctionKeyAsModifier = false
+    }
+    
+    private nonisolated func endFunctionKeyPress(at timestamp: CGEventTimestamp) {
+        guard let functionKeyPressedAt else {
+            return
+        }
+        
+        defer {
+            self.functionKeyPressedAt = nil
+            didUseFunctionKeyAsModifier = false
+        }
+        
+        guard !didUseFunctionKeyAsModifier,
+              timestamp >= functionKeyPressedAt,
+              timestamp - functionKeyPressedAt <= Self.maximumGlobeTapDuration else {
+            return
+        }
+        
+        triggerShortcut()
     }
     
     private nonisolated func triggerShortcut() {
