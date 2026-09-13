@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		F3A000012FD7100000ABCD01 /* ScrechKit in Frameworks */ = {isa = PBXBuildFile; productRef = F3A000032FD7100000ABCD01 /* ScrechKit */; };
 		F3A000042FD7200000ABCD02 /* LaunchAtLogin in Frameworks */ = {isa = PBXBuildFile; productRef = F3A000062FD7200000ABCD02 /* LaunchAtLogin */; };
-		F3ED47143057334F00B6F884 /* AGENTS.md in Resources */ = {isa = PBXBuildFile; fileRef = F3ED47133057334F00B6F884 /* AGENTS.md */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -122,7 +121,6 @@
 		F3F1E1DE2FD6A2F6001C9C85 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			files = (
-				F3ED47143057334F00B6F884 /* AGENTS.md in Resources */,
 			);
 		};
 /* End PBXResourcesBuildPhase section */
