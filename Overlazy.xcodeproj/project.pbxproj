@@ -3,16 +3,18 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 77;
+	objectVersion = 110;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		F3A000012FD7100000ABCD01 /* ScrechKit in Frameworks */ = {isa = PBXBuildFile; productRef = F3A000032FD7100000ABCD01 /* ScrechKit */; };
 		F3A000042FD7200000ABCD02 /* LaunchAtLogin in Frameworks */ = {isa = PBXBuildFile; productRef = F3A000062FD7200000ABCD02 /* LaunchAtLogin */; };
+		F3ED47143057334F00B6F884 /* AGENTS.md in Resources */ = {isa = PBXBuildFile; fileRef = F3ED47133057334F00B6F884 /* AGENTS.md */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		F3A000072FD7300000ABCD03 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		F3ED47133057334F00B6F884 /* AGENTS.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = AGENTS.md; sourceTree = "<group>"; };
 		F3F1E1E02FD6A2F6001C9C85 /* Overlazy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Overlazy.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -27,12 +29,10 @@
 /* Begin PBXFrameworksBuildPhase section */
 		F3F1E1DD2FD6A2F6001C9C85 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
 			files = (
 				F3A000012FD7100000ABCD01 /* ScrechKit in Frameworks */,
 				F3A000042FD7200000ABCD02 /* LaunchAtLogin in Frameworks */,
 			);
-			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
@@ -41,6 +41,7 @@
 			isa = PBXGroup;
 			children = (
 				F3A000072FD7300000ABCD03 /* README.md */,
+				F3ED47133057334F00B6F884 /* AGENTS.md */,
 				F3F1E1E22FD6A2F6001C9C85 /* Overlazy */,
 				F3F1E1E12FD6A2F6001C9C85 /* Products */,
 			);
@@ -66,8 +67,6 @@
 				F3F1E1DE2FD6A2F6001C9C85 /* Resources */,
 			);
 			buildRules = (
-			);
-			dependencies = (
 			);
 			fileSystemSynchronizedGroups = (
 				F3F1E1E22FD6A2F6001C9C85 /* Overlazy */,
@@ -109,7 +108,7 @@
 				F3A000022FD7100000ABCD01 /* XCRemoteSwiftPackageReference "ScrechKit" */,
 				F3A000052FD7200000ABCD02 /* XCRemoteSwiftPackageReference "LaunchAtLogin" */,
 			);
-			preferredProjectObjectVersion = 77;
+			preferredProjectObjectVersion = 110;
 			productRefGroup = F3F1E1E12FD6A2F6001C9C85 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -122,25 +121,22 @@
 /* Begin PBXResourcesBuildPhase section */
 		F3F1E1DE2FD6A2F6001C9C85 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
 			files = (
+				F3ED47143057334F00B6F884 /* AGENTS.md in Resources */,
 			);
-			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		F3F1E1DC2FD6A2F6001C9C85 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
 			files = (
 			);
-			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin XCBuildConfiguration section */
-		F3F1E1E92FD6A2F7001C9C85 /* Debug */ = {
+		F3F1E1E92FD6A2F7001C9C85 /* Debug configuration for PBXProject "Overlazy" */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -206,7 +202,7 @@
 			};
 			name = Debug;
 		};
-		F3F1E1EA2FD6A2F7001C9C85 /* Release */ = {
+		F3F1E1EA2FD6A2F7001C9C85 /* Release configuration for PBXProject "Overlazy" */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -264,7 +260,7 @@
 			};
 			name = Release;
 		};
-		F3F1E1EC2FD6A2F7001C9C85 /* Debug */ = {
+		F3F1E1EC2FD6A2F7001C9C85 /* Debug configuration for PBXNativeTarget "Overlazy" */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -301,7 +297,7 @@
 			};
 			name = Debug;
 		};
-		F3F1E1ED2FD6A2F7001C9C85 /* Release */ = {
+		F3F1E1ED2FD6A2F7001C9C85 /* Release configuration for PBXNativeTarget "Overlazy" */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -344,19 +340,17 @@
 		F3F1E1DB2FD6A2F6001C9C85 /* Build configuration list for PBXProject "Overlazy" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				F3F1E1E92FD6A2F7001C9C85 /* Debug */,
-				F3F1E1EA2FD6A2F7001C9C85 /* Release */,
+				F3F1E1E92FD6A2F7001C9C85 /* Debug configuration for PBXProject "Overlazy" */,
+				F3F1E1EA2FD6A2F7001C9C85 /* Release configuration for PBXProject "Overlazy" */,
 			);
-			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
 		F3F1E1EB2FD6A2F7001C9C85 /* Build configuration list for PBXNativeTarget "Overlazy" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				F3F1E1EC2FD6A2F7001C9C85 /* Debug */,
-				F3F1E1ED2FD6A2F7001C9C85 /* Release */,
+				F3F1E1EC2FD6A2F7001C9C85 /* Debug configuration for PBXNativeTarget "Overlazy" */,
+				F3F1E1ED2FD6A2F7001C9C85 /* Release configuration for PBXNativeTarget "Overlazy" */,
 			);
-			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
