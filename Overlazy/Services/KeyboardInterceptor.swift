@@ -11,7 +11,6 @@ final class KeyboardInterceptor: @unchecked Sendable {
     nonisolated(unsafe) private var runLoopSource: CFRunLoopSource?
     nonisolated(unsafe) private var functionKeyPressedAt: CGEventTimestamp?
     nonisolated(unsafe) private var didUseFunctionKeyAsModifier = false
-    nonisolated(unsafe) private var shouldSuppressSpaceKeyUp = false
     
     func start() -> KeyboardShortcutStatus {
         stop()
@@ -113,17 +112,6 @@ final class KeyboardInterceptor: @unchecked Sendable {
             didUseFunctionKeyAsModifier = true
         }
         
-        if type == .keyDown, isControlSpace(event), !isRepeat(event) {
-            shouldSuppressSpaceKeyUp = true
-            triggerShortcut()
-            return nil
-        }
-        
-        if type == .keyUp, shouldSuppressSpaceKeyUp, isSpace(event) {
-            shouldSuppressSpaceKeyUp = false
-            return nil
-        }
-        
         return Unmanaged.passUnretained(event)
     }
     
@@ -171,21 +159,6 @@ final class KeyboardInterceptor: @unchecked Sendable {
         Task { @MainActor [weak self] in
             self?.onShortcut?()
         }
-    }
-    
-    private nonisolated func isControlSpace(_ event: CGEvent) -> Bool {
-        guard isSpace(event) else {
-            return false
-        }
-        
-        let flags = event.flags
-        let disallowedModifiers: CGEventFlags = [.maskCommand, .maskAlternate, .maskShift]
-        
-        return flags.contains(.maskControl) && flags.intersection(disallowedModifiers).isEmpty
-    }
-    
-    private nonisolated func isSpace(_ event: CGEvent) -> Bool {
-        event.getIntegerValueField(.keyboardEventKeycode) == Int64(kVK_Space)
     }
     
     private nonisolated func isFunctionKey(_ event: CGEvent) -> Bool {
